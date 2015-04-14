@@ -1,37 +1,10 @@
 #include<iostream>
+#include "5Chapter.h"
 using namespace std;
-int func(int x)
-{
-	int count = 0;
-	while (x)
-	{
-		count++;
-		x = x&(x - 1);
-	}
-	return count;
-}
-//用一个表达式判断x是否是2的n次方，不可用循环语句
-bool is2N(int x)
-{
-	return !x&(x - 1);
-}
 
-int f(int x, int y)
-{
-	return (x&y) + ((x^y) >> 1);
-}
-//利用位移运算实现两个整数加法
-int plus2(int x, int y)
-{
-	if (y == 0)return x;
-	int sum, carry;
-	sum = x^y;
-	carry = (x&y) << 1;
-	return plus2(sum,carry);
-}
 int main()
 {
-	cout << plus2(2,3) << endl;
+	switch1();
 	/*//用一个表达式判断x是否是2的n次方，不可用循环语句
 	!x&(x - 1);	
 	unsigned char a = 0xA5;
