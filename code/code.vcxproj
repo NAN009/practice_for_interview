@@ -67,6 +67,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="6Chapter.h" />
     <ClInclude Include="binary.h" />
     <ClInclude Include="5Chapter.h" />
   </ItemGroup>

@@ -1,10 +1,11 @@
 #include<iostream>
 #include "5Chapter.h"
+#include "6Chapter.h"
 using namespace std;
 
 int main()
 {
-	switch1();
+	cout << SUB(3, 5) << endl;
 	/*//用一个表达式判断x是否是2的n次方，不可用循环语句
 	!x&(x - 1);	
 	unsigned char a = 0xA5;
