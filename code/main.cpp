@@ -5,7 +5,14 @@ using namespace std;
 
 int main()
 {
-	cout << SUB(3, 5) << endl;
+	C c1(0), c2(10);
+	for (int i = 0, tmp; i < 10; ++i)
+	{
+		tmp = c1.incr();
+		cout << setw(tmp) << setfill(' ') << tmp << endl;
+		tmp = c2.decr();
+		cout << setw(tmp) << setfill(' ') << tmp << endl;
+	}
 	/*//用一个表达式判断x是否是2的n次方，不可用循环语句
 	!x&(x - 1);	
 	unsigned char a = 0xA5;
