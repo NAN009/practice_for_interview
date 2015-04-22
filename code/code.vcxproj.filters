@@ -29,5 +29,8 @@
     <ClInclude Include="6Chapter.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="7Chapter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
