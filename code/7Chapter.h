@@ -34,3 +34,12 @@ void swap5(int &p, int &q)
 	p = q;
 	q = temp;
 }
+void Li4()
+{
+	int a[3];
+	a[0] = 0; a[1] = 1; a[2] = 2;
+	int *p, *q;
+	p = a;
+	q = &a[2];
+	cout << a[q - p] << endl;
+}
