@@ -2,6 +2,7 @@
 //递归函数：一个函数直接调用自己本身或通过其他的过程或函数调用语句间接地调用自己的函数
 //递归函数mystrlen(char *buf,int N)是用来实现统计字符串中第一个空字符前面字符长度
 #include <iostream>
+#include <windows.h>
 using namespace  std;
 int myStrlen(char *buf, int N)
 {
@@ -49,3 +50,57 @@ public:
 	}
 
 };
+
+//统计每个ASCII字符出现的次数
+void histogram(char* src)
+{
+	int i;
+	char hist[256];//memset()
+	for (i = 0; i < 256; ++i)
+		hist[i] = 0;
+	while (*src != '\0')
+	{
+		hist[*src++]++;
+	}
+	for (i = 0; i < 256; ++i)
+		cout << hist[i];
+}
+
+//设计一个定时器程序，当输入一个时间，就按照输入值停留多久
+void timer1(double x)
+{
+	double cnt = 0;
+	cnt = x * 1000;
+	Sleep(cnt);
+}
+#define max(a,b) ((a)<(b)?(b):(a))
+#define abs(a) ((a)>0?(a):-(a))
+int foo(int x, int y)
+{
+	int t = max(abs(x), abs(y));
+	int u = t + t;
+	int v = u - 1;
+	v = v*v + u;
+	if (x == -t)
+		v += u + t - y;
+	else if (y == -t)
+		v += 3 * u + x - t;
+	else if (y == t)
+		v += t - x;
+	else
+		v += y - t;
+	return v;
+}
+#define  LOOP 1000
+void main1()
+{
+	int rgnC = 0;
+	for (int i = 0; i < LOOP; ++i)
+	{
+		int x = rand();
+		int y = rand();
+		if (x*x + y*y < RAND_MAX*RAND_MAX)
+			rgnC++;
+	}
+	cout << rgnC;
+}
