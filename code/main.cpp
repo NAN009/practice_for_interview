@@ -10,11 +10,8 @@ using namespace std;
 
 int main()
 {
-	int a = 1, b = 2, c = 3, d = 4, e = -5;
-	int x = Operate<int>::Add(a, b);
-	int y = Operate<int>::Tmul(c, d);
-	int z = Operate<int>::Jud(e, b);
-	cout << x << " " << y << " " << z << endl;
+	
+	
 	/*cout << sizeof(F) << endl;
 	cout << sizeof(G) << endl;
 	cout << sizeof(H) << endl;
