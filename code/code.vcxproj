@@ -68,6 +68,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="10Chapter.h" />
     <ClInclude Include="6Chapter.h" />
     <ClInclude Include="7Chapter.h" />
     <ClInclude Include="8Chapter.h" />
