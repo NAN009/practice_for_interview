@@ -9,10 +9,9 @@
 #include "10Chapter.h"
 using namespace std;
 
+
 int main()
 {
-	base obj;
-	cout << obj.get_i() << endl << obj.get_j() << endl;
 	
 	system("pause");
 	return 0;
