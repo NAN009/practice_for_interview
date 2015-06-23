@@ -77,6 +77,8 @@
     <ClInclude Include="9Chapter.h" />
     <ClInclude Include="binary.h" />
     <ClInclude Include="5Chapter.h" />
+    <ClInclude Include="dataStructure.h" />
+    <ClInclude Include="linklist.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
