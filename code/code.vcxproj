@@ -75,6 +75,7 @@
     <ClInclude Include="7Chapter.h" />
     <ClInclude Include="8Chapter.h" />
     <ClInclude Include="9Chapter.h" />
+    <ClInclude Include="array.h" />
     <ClInclude Include="binary.h" />
     <ClInclude Include="5Chapter.h" />
     <ClInclude Include="dataStructure.h" />

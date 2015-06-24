@@ -13,10 +13,8 @@ using namespace std;
 
 int main()
 {
-	double a, b = 0.0000000001;
-	a = sqrt(b);
-	cout << a << " " << sizeof(a) << endl << b << " " << sizeof(b) << endl;
-	
+	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
+	cout << matrix[1][4];
 	system("pause");
 	return 0;
 }
