@@ -8,13 +8,20 @@
 //#include "9Chapter.h"
 //#include "10Chapter.h"
 #include "11Chapter.h"
+#include "Cstrings.h"
 using namespace std;
 #define NORM2(x,y) ((x)*(x)+(y)*(y))
 
 int main()
 {
 	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
-	cout << matrix[1][4];
+	int n;
+	
+	char b[2] = { 0 };
+	strcpy(b, "aaa");
+	char y[] = "ntse";
+	char x[] = "ntse";
+	cout << b;
 	system("pause");
 	return 0;
 }

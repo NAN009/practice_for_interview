@@ -78,6 +78,7 @@
     <ClInclude Include="array.h" />
     <ClInclude Include="binary.h" />
     <ClInclude Include="5Chapter.h" />
+    <ClInclude Include="Cstrings.h" />
     <ClInclude Include="dataStructure.h" />
     <ClInclude Include="linklist.h" />
   </ItemGroup>
