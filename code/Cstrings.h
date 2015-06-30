@@ -176,3 +176,31 @@ int StrToInt(const char *str)
 	}
 	return num;
 }
+//大数乘法
+void multiply(const char *a, const char *b)
+{
+	assert(a != nullptr&&b != nullptr);
+	int i, j, lenA, lenB,*sum;
+	lenA = strlen(a);
+	lenB = strlen(b);
+	sum = new int[lenB + lenA];
+	memset(sum, 0, lenB + lenA);
+	for (i = 0; i < lenA;++i)
+		for (j = 0; j < lenB; ++j)
+			sum[i + j + 1] += (a[i] - '0')*(b[i] - '0');//在开头留一位，为进位备用
+	for (i = lenA + lenB - 1; i >= 0;i--)
+	if (sum[i] >= 10)
+	{
+		sum[i - 1] += sum[i] / 10;
+		sum[i] %= 10;
+	}
+	char *c = new char[lenA + lenB];
+	i = 0;
+	while (sum[i] == 0)i++;
+	for (j = 0; i < lenA + lenB; ++i, ++j)
+		c[j] = sum[i] + '0';
+	c[j] = '\0';
+	for (i = 0; i < lenB + lenA; ++i)
+		cout << c[i];
+	cout << endl;
+}
