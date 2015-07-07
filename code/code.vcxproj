@@ -80,7 +80,9 @@
     <ClInclude Include="5Chapter.h" />
     <ClInclude Include="Cstrings.h" />
     <ClInclude Include="dataStructure.h" />
+    <ClInclude Include="DynamicProgramming.h" />
     <ClInclude Include="linklist.h" />
+    <ClInclude Include="Stack1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
