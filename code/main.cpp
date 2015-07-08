@@ -7,6 +7,7 @@
 //#include "8Chapter.h"
 //#include "9Chapter.h"
 //#include "10Chapter.h"
+#include "operator1.h"
 #include "11Chapter.h"
 #include "Cstrings.h"
 using namespace std;
@@ -17,11 +18,7 @@ int main()
 	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
 	int n;
 	
-	char b[2] = { 0 };
-	strcpy(b, "aaa");
-	char y[] = "ntse";
-	char x[] = "ntse";
-	cout << b;
+	cout << average(4, 6);
 	system("pause");
 	return 0;
 }

@@ -73,7 +73,7 @@ char *strcpy1(char *strDestination, const char *strSource)
 
 //在字符串中查找子串，给定一个字符串A，要求在A中查找一个子串B
 //暴力破解
-char* strFind(const char *str, const char *substring)
+char* strFind(char *str, const char *substring)
 {
 	assert(str != nullptr&&substring != nullptr);
 	int m = strlen(str), n = strlen(substring),j;
