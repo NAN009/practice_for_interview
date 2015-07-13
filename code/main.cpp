@@ -10,15 +10,16 @@
 #include "operator1.h"
 #include "11Chapter.h"
 #include "Cstrings.h"
+#include "preprocessing.h"
+#include "function.h "
 using namespace std;
 #define NORM2(x,y) ((x)*(x)+(y)*(y))
 
-int main()
+int main(void)
 {
 	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
-	int n;
+	cout << t(3);
 	
-	cout << average(4, 6);
 	system("pause");
 	return 0;
 }

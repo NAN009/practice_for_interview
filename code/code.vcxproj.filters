@@ -68,5 +68,14 @@
     <ClInclude Include="operator1.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="preprocessing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="function.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
