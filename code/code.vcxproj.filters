@@ -77,5 +77,11 @@
     <ClInclude Include="tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Computer Networks.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="15_chapterSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

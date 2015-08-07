@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClInclude Include="10Chapter.h" />
     <ClInclude Include="11Chapter.h" />
+    <ClInclude Include="15_chapterSort.h" />
     <ClInclude Include="6Chapter.h" />
     <ClInclude Include="7Chapter.h" />
     <ClInclude Include="8Chapter.h" />
@@ -78,6 +79,7 @@
     <ClInclude Include="array.h" />
     <ClInclude Include="binary.h" />
     <ClInclude Include="5Chapter.h" />
+    <ClInclude Include="Computer Networks.h" />
     <ClInclude Include="Cstrings.h" />
     <ClInclude Include="dataStructure.h" />
     <ClInclude Include="DynamicProgramming.h" />

@@ -12,14 +12,17 @@
 #include "Cstrings.h"
 #include "preprocessing.h"
 #include "function.h "
+#include "15_chapterSort.h"
 using namespace std;
 #define NORM2(x,y) ((x)*(x)+(y)*(y))
 
 int main(void)
 {
 	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
-	cout << t(3);
-	
+	int a[] = {8,3,6,9,1,4,7,2,5};
+	BubbleSort(a, 9);
+	for (int i = 0; i < 9; ++i)
+		cout << a[i] << " ";
 	system("pause");
 	return 0;
 }
