@@ -55,6 +55,21 @@ int Partition(int A[], int low, int high)
 	swap(A[i + 1], A[high]);
 	return i + 1;
 }
+int Partition1(int A[], int low, int high)
+{
+	int pivot = A[low];
+	while (low < high)
+	{
+		while (low<high&&A[high]>=pivot)
+			--high;
+		A[low] = A[high];
+		while (low < high&&A[low] <= pivot)
+			++low;
+		A[high] = A[low];
+	}
+	A[low] = pivot;
+	return low;
+}
 void QuickSort(int A[], int low, int high)
 {
 	if (low < high)
@@ -62,5 +77,34 @@ void QuickSort(int A[], int low, int high)
 		int pivot = Partition(A, low, high);
 		QuickSort(A, low, pivot - 1);
 		QuickSort(A, pivot + 1, high);
+	}
+}
+//一个数组存有且仅有大写字母和小写字母，编写一个函数对数组内的字母重新排列，让小写在所有大写之前
+void Partition(char a[], int low, int high)
+{
+	while (low<high)
+	{
+		while (low < high&&isupper(a[high]))
+			--high;
+		while (low < high&&islower(a[low]))
+			++low;
+		char temp = a[high];
+		a[high] = a[low];
+		a[low] = temp;
+	}
+}
+//给定含有n个元素的整型数组a,其中包括0元素和非0元素，对数组排序：1、排序后所有0元素在前，非0元素在后，且非0元素相对位置不变；2、不能使用额外存储空间
+void Partition2(int a[], int low, int high)
+{
+	int i = high + 1;
+	for (int j = high; j >= low; --j)
+	{
+		if (a[j] != 0)
+		{
+			--i;
+			int temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+		}
 	}
 }

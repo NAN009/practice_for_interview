@@ -19,8 +19,8 @@ using namespace std;
 int main(void)
 {
 	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
-	int a[] = {8,3,6,9,1,4,7,2,5};
-	BubbleSort(a, 9);
+	int a[] = {8,0,0,9,1,0,7,2,0};
+	Partition2(a, 0,8);
 	for (int i = 0; i < 9; ++i)
 		cout << a[i] << " ";
 	system("pause");
