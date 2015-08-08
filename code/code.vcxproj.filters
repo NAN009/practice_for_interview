@@ -83,5 +83,8 @@
     <ClInclude Include="15_chapterSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="剑指offer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
