@@ -142,5 +142,64 @@ BinaryTreeNode *Consturct(int *preOrder, int *inOrder, int length)
 	if (preOrder == nullptr || inOrder == nullptr||length<=0)
 		return root;	
 }
-
-
+//用两个栈实现队列
+//template<typename T>class CQueue
+//{
+//public:
+//	CQueue(void);
+//	~CQueue(void);
+//	void appendTail(const T& node);
+//	T deleteHead();
+//private:
+//	stack<T> stack1;
+//	stack<T> stack2;
+//
+//};
+//template<typename T> void CQueue<T>::appendTail(const T& node)
+//{
+//	stack1.push(node);
+//}
+//template<typename T> T CQueue::deleteHead()
+//{
+//	if (stack2.size() <= 0)
+//	{
+//		while (stack1.size()>0)
+//		{
+//			T& data = stack1.top();
+//			stack2.push(data);
+//			stack1.pop();
+//		}
+//	}
+//	if (stack2.size() == 0)
+//		throw new exception("queue is empty");
+//	T head = stack2.top();
+//	stack2.pop();
+//	return head;
+//}
+//斐波那契数列
+long fibonacci(unsigned int n)
+{
+	if (n <= 0)
+		return 0;
+	if (n == 1||n==2)
+		return 1;
+	long first = 1, second = 1,fib=0;
+	for (int i = 2; i <n; ++i)
+	{
+		fib = first + second;
+		first = second;
+		second = fib;
+	}
+	return fib;
+}
+//二进制中1的个数
+int CountBinary(int x)
+{
+	int count = 0;
+	while (x)
+	{
+		++count;
+		x = x&(x - 1);
+	}
+	return count;
+}

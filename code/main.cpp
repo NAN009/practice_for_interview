@@ -24,8 +24,7 @@ int main(void)
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we  are happy";
 
-	cin >> n;
-	dfs(0);
+	cout << CountBinary(9);
 	
 	system("pause");
 	return 0;
