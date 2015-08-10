@@ -84,6 +84,7 @@
     <ClInclude Include="dataStructure.h" />
     <ClInclude Include="DynamicProgramming.h" />
     <ClInclude Include="function.h" />
+    <ClInclude Include="graph.h" />
     <ClInclude Include="linklist.h" />
     <ClInclude Include="operator1.h" />
     <ClInclude Include="preprocessing.h" />

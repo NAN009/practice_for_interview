@@ -14,6 +14,7 @@
 #include "function.h "
 #include "15_chapterSort.h"
 #include "½£Ö¸offer.h"
+#include "graph.h"
 using namespace std;
 #define NORM2(x,y) ((x)*(x)+(y)*(y))
 
@@ -23,9 +24,9 @@ int main(void)
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we  are happy";
 
-	ReplaceBlank(c, 30);
-	for (int i = 0; i < 30; ++i)
-		cout << c[i];
+	cin >> n;
+	dfs(0);
+	
 	system("pause");
 	return 0;
 }
