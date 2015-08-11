@@ -24,7 +24,7 @@ int main(void)
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we  are happy";
 
-	cout << CountBinary(9);
+	Print1ToMaxofNDigits(2);
 	
 	system("pause");
 	return 0;

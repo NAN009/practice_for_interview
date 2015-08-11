@@ -203,3 +203,89 @@ int CountBinary(int x)
 	}
 	return count;
 }
+//数值的整数次方
+bool g_InvalidInput = false;
+bool equal(double x, double y)
+{
+	if (x - y<0.0000001&&x - y>-0.0000001)
+		return true;
+	return false;
+}
+double PowerWithUnsignedExp(double base, unsigned int exp)
+{
+	double result = 1.0;
+	for (int i = 1; i < exp;++i)
+	{
+		result *= base;
+	}
+	return result;
+}
+double PowerWithUnsignedExp1(double base, unsigned int exp)
+{
+	if (0 == exp)
+		return 1;
+	if (1 == exp)
+		return 1;
+	double result = PowerWithUnsignedExp1(base, exp >> 1);
+	result *= result;
+	if (exp & 0x1 == 1)
+		result *= base;
+	return result;
+}
+
+double power(double base, int exp)
+{
+	g_InvalidInput = true;
+	if (equal(base, 0.0) && exp < 0)
+	{
+		g_InvalidInput = true;
+		return 0.0;
+	}
+	unsigned int absExp = (unsigned int)(exp);
+	if (exp < 0)
+		absExp = (unsigned int)(-exp);
+	double result = PowerWithUnsignedExp(base, absExp);
+	if (exp < 0)
+		result = 1.0 / result;
+}
+//打印1到最大n位数
+void PrintNumber(char *number)
+{
+	bool isBeginning0 = true;
+	int nLength = strlen(number);
+	for (int i = 0; i < nLength;++i)
+	{
+		if (isBeginning0&&number[i] != '0')
+			isBeginning0 = false;
+		if (!isBeginning0)
+			cout << number[i];
+	}
+	cout << endl;
+}
+void Print1ToMaxofNDigitsRecursively(char *number, int length, int index)
+{
+	if (index == length - 1)
+	{
+		PrintNumber(number);
+		return;
+	}
+		
+	for (int i = 0; i < 10;++i)
+	{
+		number[index + 1] = i + '0';
+		Print1ToMaxofNDigitsRecursively(number, length, index + 1);
+	}
+}
+void Print1ToMaxofNDigits(int n)
+{
+	if (n <= 0)
+		return;
+	char *number = new char[n + 1];
+	number[n] = '\0';
+	for (int i = 0; i < 10;++i)
+	{
+		number[0] = i + '0';
+		Print1ToMaxofNDigitsRecursively(number, n, 0);
+	}
+	delete[] number;
+}
