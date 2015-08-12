@@ -23,8 +23,8 @@ int main(void)
 	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we  are happy";
-
-	Print1ToMaxofNDigits(2);
+	
+	cout << jumpFloor(4);
 	
 	system("pause");
 	return 0;

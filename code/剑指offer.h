@@ -33,30 +33,30 @@ void ReplaceBlank(char string[], int length)
 }
 //合并两个数组/字符串时，如果从前往后复制每个数组需要重复移动多次时，可以尝试从后往前复制。
 
-struct ListNode
+struct ListNode1
 {
 	int Value;
-	ListNode* next;
+	ListNode1* next;
 };
 //尾部添加value
-void AddToTail(ListNode **pHead, int value)
+void AddToTail(ListNode1 **pHead, int value)
 {
-	ListNode *pNew = new ListNode();
+	ListNode1 *pNew = new ListNode1();
 	pNew->Value = value;
 	pNew->next = nullptr;
 	if (*pHead == nullptr)
 		return;
-	ListNode *pNode = *pHead;
+	ListNode1 *pNode = *pHead;
 	while (pNode->next)
 		pNode = pNode->next;
 	pNode->next = pNew;
 }
 //删除值为value的节点
-void RemoveNode(ListNode *pHead, int value)
+void RemoveNode(ListNode1 *pHead, int value)
 {
 	if (pHead==nullptr)
 		return;
-	ListNode *pPre = nullptr,*pCur=pHead;
+	ListNode1 *pPre = nullptr,*pCur=pHead;
 	while (pCur&&pCur->Value!=value)
 	{
 		pPre = pCur;
@@ -75,12 +75,12 @@ void RemoveNode(ListNode *pHead, int value)
 	delete pCur;
 }
 //从尾到头打印链表
-void PrintListReversingly(ListNode *head)
+void PrintListReversingly(ListNode1 *head)
 {
-	stack<ListNode*>nodes;
+	stack<ListNode1*>nodes;
 	if (head == nullptr)
 		return;
-	ListNode *p = head;
+	ListNode1 *p = head;
 	while (p)
 	{
 		nodes.push(p);
@@ -93,7 +93,7 @@ void PrintListReversingly(ListNode *head)
 	}
 }
 //递归版  可能栈溢出
-void PrintListReversingly1(ListNode *head)
+void PrintListReversingly1(ListNode1 *head)
 {
 	if (head != nullptr)
 	{
@@ -289,3 +289,84 @@ void Print1ToMaxofNDigits(int n)
 	}
 	delete[] number;
 }
+struct ListNode {
+	int val;
+	struct ListNode *next;
+	ListNode(int x) :
+		val(x), next(NULL) {
+	}
+};
+//输出链表中倒数第k个节点
+ListNode* FindKthToTail(ListNode* pListHead, unsigned int k)
+{
+	if (pListHead == nullptr||k==0)
+		return nullptr;
+	ListNode* first = pListHead,*second=nullptr;
+	for (int i = 1; i < k;++i)
+	{
+		first = first->next;
+		if (!first)
+			return second;
+	}
+	second = pListHead;
+	while (first->next)
+	{
+		first = first->next;
+		second = second->next;
+	}
+	return second;
+}
+//反转链表
+ListNode* ReverseList(ListNode* pHead)
+{
+	if (nullptr == pHead||nullptr==pHead->next)
+		return pHead;
+	ListNode *pre = nullptr, *cur = pHead, *next = pHead->next;
+	while (next)
+	{
+		next = cur->next;
+		cur->next = pre;
+		pre = cur;
+		cur = next;
+	}
+	return pre;
+}
+//合并两个排序的链表
+ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
+{
+	if (pHead1 == nullptr)
+		return pHead2;
+	if (pHead2 == nullptr)
+		return pHead1;
+	
+	ListNode *p =nullptr;
+	if (pHead1->val < pHead2->val)
+	{
+		p = pHead1;
+		p->next = Merge(pHead1->next, pHead2);
+	}
+	else
+	{
+		p = pHead2;
+		p->next = Merge(pHead1, pHead2->next);
+	}
+	return p;
+}
+//跳台阶:一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法
+int jumpFloor(int number) {
+	int one = 1, two = 2, sum;
+	if (number <= 0)
+		return 0;
+	if (1 == number)
+		return 1;
+	if (2 == number)
+		return 2;
+	for (int i = 2; i < number; ++i)
+	{
+		sum = one + two;
+		one = two;
+		two = sum;
+	}
+	return sum;
+}
+//一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法
