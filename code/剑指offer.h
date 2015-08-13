@@ -354,13 +354,13 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
 }
 //跳台阶:一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法
 int jumpFloor(int number) {
-	int one = 1, two = 2, sum;
+	int one = 1, two = 1, sum;
 	if (number <= 0)
 		return 0;
 	if (1 == number)
 		return 1;
 	if (2 == number)
-		return 2;
+		return 1;
 	for (int i = 2; i < number; ++i)
 	{
 		sum = one + two;
@@ -370,3 +370,84 @@ int jumpFloor(int number) {
 	return sum;
 }
 //一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法
+
+struct TreeNode {
+	int val;
+	struct TreeNode *left;
+	struct TreeNode *right;
+	TreeNode(int x) :
+		val(x), left(NULL), right(NULL) {
+	}
+};
+//二叉树镜像
+void Mirror(TreeNode *pRoot) 
+{
+	if (pRoot == nullptr)
+		return;
+	TreeNode *temp;
+	temp = pRoot->left;
+	pRoot->left = pRoot->right;
+	pRoot->right = temp;
+	if (pRoot->left)
+		Mirror(pRoot->left);
+	if (pRoot->right)
+		Mirror(pRoot->right);
+}
+//包含min函数的栈
+stack<int>sta1,sta2;
+void push(int value) {
+	sta1.push(value);
+	if (sta2.empty())
+		sta2.push(value);
+	else
+	{
+		if (value < sta2.top())
+			sta2.push(value);
+		else
+			sta2.push(sta2.top());
+	}
+}
+void pop() {
+	if (sta1.empty()||sta2.empty())
+		return;
+	sta1.pop();
+	sta2.pop();
+}
+int top() {
+	if(!sta1.empty())
+		return sta1.top();
+}
+int min() {
+	if (!sta2.empty())
+		return sta2.top();
+}
+//栈的压入、弹出序列
+bool IsPopOrder(vector<int> pushV, vector<int> popV) 
+{
+	return true;
+}
+//从上往下打印二叉树
+vector<int> PrintFromTopToBottom(TreeNode *root) 
+{
+	vector<int >vec;
+	if (nullptr == root)
+		return vec;
+	deque<TreeNode*> que;
+	que.push_back(root);
+	while (!que.empty())
+	{
+		int len = que.size();
+		for (int i = 0; i < len; ++i)
+		{
+			TreeNode *p = que.front();
+			vec.push_back(p->val);
+			if (p->left)
+				que.push_back(p->left);
+			if (p->right)
+				que.push_back(p->right);
+			que.pop_front();
+		}
+	}
+	return vec;
+	
+}
