@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stack>
+#include <vector>
 using namespace std;
 //替换空格，把字符串中的每个空格替换为“%20”
 void ReplaceBlank(char string[], int length)
@@ -422,10 +423,7 @@ int min() {
 		return sta2.top();
 }
 //栈的压入、弹出序列
-bool IsPopOrder(vector<int> pushV, vector<int> popV) 
-{
-	return true;
-}
+
 //从上往下打印二叉树
 vector<int> PrintFromTopToBottom(TreeNode *root) 
 {
@@ -451,3 +449,94 @@ vector<int> PrintFromTopToBottom(TreeNode *root)
 	return vec;
 	
 }
+//二维数组中的查找
+bool Find(vector<vector<int>> array, int target)
+{
+	if (array.empty())
+		return false;
+	int cols=array[0].size(),rows=array.size(),col=cols-1,row=0;
+	while (col>=0&&row<rows)
+	{
+		if (array[row][col] == target)
+			return true;
+		else if (array[row][col]>target)
+			col--;
+		else
+			row++;
+
+	}
+	return false;
+
+}
+//替换空格
+void replaceSpace1(char *str, int length) {
+	int count_blank = 0,originLength=0;
+	while (*str!='\0')
+	{
+		if (*str==' ')
+			count_blank++;
+		originLength++;
+		str++;
+	}
+	int first = originLength - 1, second = originLength + 2 * count_blank-1;
+	if (second > length)
+		return;
+	while (first!=second)
+	{
+		if (str[first] == ' ')
+		{
+			str[second--] = '0';
+			str[second--] = '2';
+			str[second--] = '%';
+		}
+		else
+			str[second--] = str[first];
+		first--;
+	}
+}
+//从尾到头打印链表
+void printListFromTail(ListNode * head,vector<int> &vec)
+{
+	if (head != nullptr)
+	{
+		if (head->next != nullptr)
+			printListFromTail(head->next, vec);			
+		vec.push_back(head->val);			
+	}		
+}
+vector<int> printListFromTailToHead1(ListNode* head) {
+	vector<int>vec;
+	if (nullptr == head)
+		return vec;
+	printListFromTail(head, vec);
+	return vec;
+}
+//用栈实现队列
+
+class que
+{
+	stack<int> stack1;
+	stack<int> stack2;
+public:
+	void push1(int node)
+	{
+		stack1.push(node);
+	}
+	int pop1()
+	{
+		if (!stack2.empty())
+		{
+			int temp = stack2.top();
+			stack2.pop();
+			return temp;
+		}
+		while (!stack1.empty())
+		{
+			stack2.push(stack1.top());
+			stack1.pop();
+		}
+		stack2.pop();
+		return stack2.top();
+	}
+};
+
