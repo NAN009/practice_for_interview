@@ -25,25 +25,15 @@ int main(void)
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we  are happy";
 
-	vector<int> vec = {7,0,5};
+	vector<int> vec = {5,4,3,2,1};
 	ListNode *head = new ListNode(6),*temp=head;
 	for (int i = 0; i < vec.size(); ++i)
 	{
 		temp->next = new struct ListNode(vec[i]);
 		temp = temp->next;
 	}
+	cout << VerifySquenceOfBST(vec);
 
-	que qu;
-	qu.push1(1);
-	qu.push1(2);
-	qu.push1(3);
-	qu.pop1();
-	qu.pop1();
-	qu.push1(4);
-	qu.pop1();
-	qu.push1(5);
-	qu.pop1();
-	qu.pop1();
 	system("pause");
 	return 0;
 }

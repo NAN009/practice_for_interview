@@ -512,7 +512,6 @@ vector<int> printListFromTailToHead1(ListNode* head) {
 	return vec;
 }
 //用栈实现队列
-
 class que
 {
 	stack<int> stack1;
@@ -530,13 +529,64 @@ public:
 			stack2.pop();
 			return temp;
 		}
-		while (!stack1.empty())
+		else
 		{
-			stack2.push(stack1.top());
-			stack1.pop();
+			while (!stack1.empty())
+			{
+				stack2.push(stack1.top());
+				stack1.pop();
+			}
 		}
+		int temp = stack2.top();
 		stack2.pop();
-		return stack2.top();
+		return temp;
 	}
 };
+//旋转数组的最小数字
+//二叉搜索树的后序遍历序列
+bool VerifySquenceOfBST1(vector<int> &sequence,int start,int end)
+{
+	int root = sequence[end],left=0,i;
+	for (i = start; i < end;++i)
+	{
+		if (sequence[i]>root)
+			break;
+	}
+	left = i;
+	for (int j = i; j < end; ++j)
+	{
+		if (sequence[j] < root)
+			return false;
+	}
+	bool left1 = true;
+	if (i > 0)
+		left1 = VerifySquenceOfBST1(sequence, start, left - 1);
+	bool right= true;
+	if (i<end)
+		right = VerifySquenceOfBST1(sequence, left, end - 1);
+	return left1&&right;
+}
+bool VerifySquenceOfBST(vector<int> sequence) 
+{
+	if (sequence.empty())
+		return false;
+	return VerifySquenceOfBST1(sequence, 0, sequence.size() - 1);
 
+}
+//树的子结构
+bool isSubtree(TreeNode* head1, TreeNode* head2)
+{
+	if (head2 == nullptr)
+		return true;
+	if (head1 == nullptr)
+		return false;
+	if (head1->val != head2->val)
+		return false; 
+	return isSubtree(head1->left, head2->left) && isSubtree(head1->right, head2->right);
+}
+bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)
+{
+	if (pRoot1 == nullptr || pRoot2 == nullptr)
+		return false;
+	return isSubtree(pRoot1, pRoot2) || HasSubtree(pRoot1->left, pRoot2->left) || HasSubtree(pRoot1->right, pRoot2->right);
+}
