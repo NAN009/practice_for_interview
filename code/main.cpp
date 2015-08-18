@@ -23,8 +23,8 @@ int main(void)
 {
 	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
 	int a[] = {8,0,0,9,1,0,7,2,0};
-	char c[30] = "we  are happy";
-
+	char c[30] = "we are happy";
+	string str = "we are happy" ;
 	vector<int> vec = {5,4,3,2,1};
 	ListNode *head = new ListNode(6),*temp=head;
 	for (int i = 0; i < vec.size(); ++i)
@@ -32,7 +32,7 @@ int main(void)
 		temp->next = new struct ListNode(vec[i]);
 		temp = temp->next;
 	}
-	cout << VerifySquenceOfBST(vec);
+	cout << ReverseSentence(str);;
 
 	system("pause");
 	return 0;

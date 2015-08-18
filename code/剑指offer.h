@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <vector>
+#include <string>
 using namespace std;
 //替换空格，把字符串中的每个空格替换为“%20”
 void ReplaceBlank(char string[], int length)
@@ -589,4 +590,64 @@ bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)
 	if (pRoot1 == nullptr || pRoot2 == nullptr)
 		return false;
 	return isSubtree(pRoot1, pRoot2) || HasSubtree(pRoot1->left, pRoot2->left) || HasSubtree(pRoot1->right, pRoot2->right);
+}
+//翻转单词顺序列
+string ReverseSentence(string str)
+{
+	if (str.empty())
+		return str;
+	reverse(str.begin(), str.end());
+	int begin = 0;
+ 	for (int k = 0; k <= str.size();++k)
+	{
+		if (str[k] == ' ' || str[k] == '\0')
+		{
+			reverse(str.begin() + begin, str.begin() + k);
+			begin = ++k;
+		}
+	}
+	return str;
+}
+//左旋转字符
+string LeftRotateString(string str, int n) 
+{
+	if (str.empty())
+		return str;
+	if (n > str.size())
+		n = n%str.size();
+	reverse(str.begin(), str.end());
+	reverse(str.begin(), str.end() - n);
+	reverse(str.end() - n, str.end());
+	return str;
+}
+//和为s的两个数字
+vector<int> FindNumbersWithSum(vector<int> array, int sum) 
+{
+	vector<int> vec;
+	if (array.empty())
+		return vec;
+	vec.push_back(0);
+	vec.push_back(0);
+	int first=0, second = array.size() - 1,val=INT_MAX;
+	while (first < second)
+	{
+		if (array[first] + array[second]>sum)
+			--second;
+		else if (array[first] + array[second] < sum)
+			first++;
+		else
+		{
+			if (array[first] * array[second]<val)
+			{
+				val = array[first] * array[second];
+				vec[0] = array[first];
+				vec[1] = array[second];
+			}
+			first++;
+			second--;
+		}
+	}
+	if (vec[0] == 0 && vec[1] == 0)
+		return vector<int>();
+	return vec;
 }
