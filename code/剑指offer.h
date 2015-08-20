@@ -672,3 +672,46 @@ char FirstNotRepeatingChar(char* pString)
 	}
 	return '\0';
 }
+//最小的k个数
+int partation(vector<int> &vec, int begin, int end)
+{
+	int i = begin - 1,j,temp=vec[end];
+	for (int j = begin; j < end;++j)
+	{
+		if (vec[j] < temp)
+		{
+			++i;
+			if (i != j)
+				swap(vec[i], vec[j]);
+		}
+	}
+	++i;
+	swap(vec[i], vec[end]);
+	return i;
+}
+vector<int> GetLeastNumbers_Solution(vector<int> input, int k) 
+{
+	vector<int >vec;
+	if (input.empty() || k<0 || k>input.size())
+		return vec;
+	int begin=0,end = input.size()-1;
+	int mid = partation(input, 0, end);
+	while (mid!=k-1)
+	{
+		if (mid > k - 1)
+		{
+			end = mid - 1;
+			mid = partation(input, begin, end);		
+		}			
+		else
+		{
+			begin = mid + 1;
+			mid = partation(input, begin, end);
+		}
+	}
+	for (int i = 0; i < k;i++)
+	{
+		vec.push_back(input[i]);
+	}
+	return vec;
+}

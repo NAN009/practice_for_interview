@@ -25,14 +25,14 @@ int main(void)
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we are happy";
 	string str = "we are happy" ;
-	vector<int> vec = {5,4,3,2,1};
+	vector<int> vec = {4,1,3,2,6,7,9,0,5};
 	ListNode *head = new ListNode(6),*temp=head;
 	for (int i = 0; i < vec.size(); ++i)
 	{
 		temp->next = new struct ListNode(vec[i]);
 		temp = temp->next;
 	}
-	cout << ReverseSentence(str);;
+	vec=GetLeastNumbers_Solution(vec,3);
 
 	system("pause");
 	return 0;
