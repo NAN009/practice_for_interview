@@ -692,7 +692,7 @@ int partation(vector<int> &vec, int begin, int end)
 vector<int> GetLeastNumbers_Solution(vector<int> input, int k) 
 {
 	vector<int >vec;
-	if (input.empty() || k<0 || k>input.size())
+	if (input.empty() || k<=0 || k>input.size())
 		return vec;
 	int begin=0,end = input.size()-1;
 	int mid = partation(input, 0, end);
@@ -714,4 +714,34 @@ vector<int> GetLeastNumbers_Solution(vector<int> input, int k)
 		vec.push_back(input[i]);
 	}
 	return vec;
+}
+//旋转数组的最小数字
+int minNumberInRotateArray(vector<int> rotateArray) 
+{
+	if (rotateArray.empty())
+		return 0;
+	int begin = 0, end = rotateArray.size() - 1;
+	int mid = (begin+end)/2;
+	if (rotateArray[begin] > rotateArray[end])
+	{
+		int min = MAXINT;
+		for (int i = 0; i < rotateArray.size();++i)
+		if ()
+	}
+	while (begin<end)
+	{
+		if (rotateArray[mid]>rotateArray[begin])
+		{
+			begin = mid + 1;
+			mid = (begin + end) / 2;
+		}
+		else if (rotateArray[mid] < rotateArray[end])
+		{
+			end = end - 1;
+			mid = (begin + end) / 2;
+		}
+		else
+			return rotateArray[mid];
+	}
+	return rotateArray[mid];
 }
