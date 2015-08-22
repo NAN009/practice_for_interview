@@ -25,7 +25,7 @@ int main(void)
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we are happy";
 	string str = "we are happy" ;
-	vector<int> vec = {2,2,1,2,2,2};
+	vector<int> vec = {3,4,5,1,2,2};
 	ListNode *head = new ListNode(6),*temp=head;
 	for (int i = 0; i < vec.size(); ++i)
 	{

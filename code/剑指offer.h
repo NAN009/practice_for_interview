@@ -716,32 +716,40 @@ vector<int> GetLeastNumbers_Solution(vector<int> input, int k)
 	return vec;
 }
 //旋转数组的最小数字
+int minInOrder(vector<int> rotateArray, int begin, int end)
+{
+	int min = rotateArray[begin];
+	for (int i = begin + 1; i <= end; ++i)
+	{
+		if (rotateArray[i] < min)
+		{
+			min = rotateArray[i];
+		}
+	}
+	return min;
+}
 int minNumberInRotateArray(vector<int> rotateArray) 
 {
 	if (rotateArray.empty())
 		return 0;
 	int begin = 0, end = rotateArray.size() - 1;
-	int mid = (begin+end)/2;
-	if (rotateArray[begin] > rotateArray[end])
+	int mid = begin;
+	while (rotateArray[begin]>=rotateArray[end])
 	{
-		int min = MAXINT;
-		for (int i = 0; i < rotateArray.size();++i)
-		if ()
-	}
-	while (begin<end)
-	{
-		if (rotateArray[mid]>rotateArray[begin])
+		if (end - begin == 1)
 		{
-			begin = mid + 1;
-			mid = (begin + end) / 2;
+			mid = end;
+			break;
 		}
-		else if (rotateArray[mid] < rotateArray[end])
+		mid = (begin + end) / 2;
+		if (rotateArray[begin] == rotateArray[end] && rotateArray[mid] == rotateArray[begin] )
 		{
-			end = end - 1;
-			mid = (begin + end) / 2;
+			return minInOrder(rotateArray, begin, end);
 		}
-		else
-			return rotateArray[mid];
+		if (rotateArray[mid]>=rotateArray[begin])
+			begin = mid;
+		else if (rotateArray[mid] <= rotateArray[end])
+			end = mid;		
 	}
 	return rotateArray[mid];
 }
