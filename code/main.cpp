@@ -25,14 +25,14 @@ int main(void)
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we are happy";
 	string str = "we are happy" ;
-	vector<int> vec = {3,4,5,1,2,2};
+	vector<int> vec = {1,2,3,2,2,2,5,4,2};
 	ListNode *head = new ListNode(6),*temp=head;
 	for (int i = 0; i < vec.size(); ++i)
 	{
 		temp->next = new struct ListNode(vec[i]);
 		temp = temp->next;
 	}
-	int x = minNumberInRotateArray(vec);
+	int x=MoreThanHalfNum_Solution(vec);
 
 	system("pause");
 	return 0;

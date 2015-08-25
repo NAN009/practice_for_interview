@@ -2,6 +2,8 @@
 #include <stack>
 #include <vector>
 #include <string>
+#include <map>
+#include <memory>
 using namespace std;
 //替换空格，把字符串中的每个空格替换为“%20”
 void ReplaceBlank(char string[], int length)
@@ -752,4 +754,86 @@ int minNumberInRotateArray(vector<int> rotateArray)
 			end = mid;		
 	}
 	return rotateArray[mid];
+}
+
+//分割字符串
+struct dict
+{
+	char word;
+	bool is_s_word;
+};
+map<string, bool > dictionary;
+string SplitString(string str, map<string, bool >dictionary)
+{
+	string result, temp;
+	if (str.empty())
+		return result;
+	for (int i = 0; i < str.size();++i)
+	{
+		temp+=str[i];
+		//字典里存在
+		map<string, bool>::iterator it;
+		for (it = dictionary.begin(); it != dictionary.end(); ++it)
+		{
+			if (it->first == temp)
+			{
+				result += temp;
+				result += ' ';
+				temp.erase(temp.begin(), temp.end());
+			}
+		}
+	}
+	result.pop_back();//删除最后一个空格
+	return result;
+}
+//调整数组顺序使奇数位于偶数前面
+void reOrderArray(vector<int> &array) 
+{
+	if (array.empty())
+		return;
+	int length=0;
+	vector<int> vec(array);
+	for (int i=0;i<array.size();++i)
+	{
+		if ((array[i] & 1) == 1)
+			length++;
+	}
+	for (int i = 0,j=0; i < array.size();++i)
+	{
+		if ((array[i] & 0x1) == 0)
+			vec[length++] = array[i];
+		else
+			vec[j++] = array[i];
+	}
+	array = vec;
+}
+//数组中出现次数超过一半的数字
+int MoreThanHalfNum_Solution(vector<int> numbers)
+{
+	if (numbers.size() == 0)
+		return 0;
+	int middle = numbers.size() >> 1,start=0,end=numbers.size()-1;
+	int index = partation(numbers, start, end);
+	while (middle!=index)
+	{
+		if (index < middle)
+		{
+			start = index + 1;
+			index = partation(numbers, start, end);
+		}
+		else
+		{
+			end = index - 1;
+			index = partation(numbers, start, end);
+		}
+	}
+	int result = numbers[middle],num=0;
+	for (int i = 0;i < numbers.size();++i)
+		if (result == numbers[i])
+			num++;
+	if (2*num <= numbers.size())
+		return 0;
+	else
+		return result;
+
 }
