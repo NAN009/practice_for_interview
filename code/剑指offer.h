@@ -837,3 +837,54 @@ int MoreThanHalfNum_Solution(vector<int> numbers)
 		return result;
 
 }
+//数字在排序数组中出现的次数
+int getFirstK(vector<int> data, int k, int begin, int end)
+{
+	if (begin > end)
+		return -1;
+	int mid = (begin + end) / 2;
+	int midData = data[mid];
+	if (midData == k)
+	{
+		if ((mid > 0 && data[mid - 1] != k) || mid == 0)
+			return mid;
+		else
+			end = mid - 1;
+	}
+	else if (mid > k)
+		end = mid - 1;
+	else
+		begin = mid + 1;
+	return getFirstK(data, k, begin, end);
+}
+int getLastK(vector<int> data, int k, int begin, int end)
+{
+	if (begin > end)
+		return -1;
+	int mid = (begin + end) / 2;
+	int midData = data[mid];
+	if (midData == k)
+	{
+		if ((mid <data.size()-1 && data[mid +11] != k) || mid == data.size()-1)
+			return mid;
+		else
+			end = mid +1;
+	}
+	else if (mid < k)
+		end = mid - 1;
+	else
+		begin = mid + 1;
+	return getFirstK(data, k, begin, end);
+}
+int GetNumberOfK(vector<int> data, int k) 
+{
+	int number = 0;
+	if (data.size() != 0)
+	{
+		int first = getFirstK(data, k, 0, data.size()-1);
+		int last = getLastK(data, k, 0, data.size() - 1);
+		if (first > -1 && last > -1)
+			number = last - first + 1;
+	}
+	return number;
+}
