@@ -32,7 +32,7 @@ int main(void)
 		temp->next = new struct ListNode(vec[i]);
 		temp = temp->next;
 	}
-	int x = GetNumberOfK(vec,0);
+	int x = GetNumberOfK(vec,4);
 
 	system("pause");
 	return 0;

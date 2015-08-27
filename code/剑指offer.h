@@ -865,16 +865,16 @@ int getLastK(vector<int> data, int k, int begin, int end)
 	int midData = data[mid];
 	if (midData == k)
 	{
-		if ((mid <data.size()-1 && data[mid +11] != k) || mid == data.size()-1)
+		if ((mid <data.size()-1 && data[mid +1] != k) || mid == data.size()-1)
 			return mid;
 		else
-			end = mid +1;
+			begin = mid +1;
 	}
 	else if (mid < k)
-		end = mid - 1;
-	else
 		begin = mid + 1;
-	return getFirstK(data, k, begin, end);
+	else
+	    end = mid - 1;
+	return getLastK(data, k, begin, end);
 }
 int GetNumberOfK(vector<int> data, int k) 
 {
@@ -887,4 +887,43 @@ int GetNumberOfK(vector<int> data, int k)
 			number = last - first + 1;
 	}
 	return number;
+}
+//power
+double powerWithUnsignedExponent(double base, unsigned int exponent)
+{
+	if (exponent == 0)
+		return 1;
+	if (1 == exponent)
+		return base;
+	double result = powerWithUnsignedExponent(base, exponent >> 1);
+	result *= result;
+	if (exponent & 0x1 == 1)
+		result *= base;
+	return result;
+}
+//¥Ú”°1µΩn
+void print1ToMaxofNDigitsRrcursively(char *number, int length, int index)
+{
+	if (index == length - 1)
+	{
+		PrintNumber(number);
+		return;
+	}
+	for (int i = 0; i < 10; ++i)
+	{
+		number[index + 1] = i + '0';
+		print1ToMaxofNDigitsRrcursively(number, length, index + 1);
+	}
+}
+void print1ToMaxofNDigits(int n)
+{
+	if (n <= 0)
+		return;
+	char *number = new char[n + 1];
+	for (int i = 0; i < 10; ++i)
+	{
+		number[0] = i + '0';
+		print1ToMaxofNDigitsRrcursively(number, n, 0);
+	}
+	delete[] number;
 }
