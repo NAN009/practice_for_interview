@@ -868,7 +868,7 @@ int getLastK(vector<int> data, int k, int begin, int end)
 		if ((mid <data.size()-1 && data[mid +1] != k) || mid == data.size()-1)
 			return mid;
 		else
-			begin = mid +1;
+			begin = mid+1 ;
 	}
 	else if (mid < k)
 		begin = mid + 1;
@@ -879,7 +879,7 @@ int getLastK(vector<int> data, int k, int begin, int end)
 int GetNumberOfK(vector<int> data, int k) 
 {
 	int number = 0;
-	if (data.size() != 0)
+	if (!data.empty())
 	{
 		int first = getFirstK(data, k, 0, data.size()-1);
 		int last = getLastK(data, k, 0, data.size() - 1);
@@ -926,4 +926,33 @@ void print1ToMaxofNDigits(int n)
 		print1ToMaxofNDigitsRrcursively(number, n, 0);
 	}
 	delete[] number;
+}
+//À≥ ±’Î¥Ú”°æÿ’Û
+vector<int> printMatrix(vector<vector<int> > matrix) 
+{
+	vector<int> vec;
+	if (matrix.empty())
+		return vec;
+	int rows = matrix.size(),cols=matrix[0].size(),row=0;
+	while (2*row<rows&&2*row<cols)
+	{
+		int endX = cols - 1 - row,endY=rows-1-row;
+		for (int i = row; i <= endX; ++i)
+			vec.push_back(matrix[row][i]);
+		if (row<endY)
+			for (int i = row + 1; i <=endY; ++i)
+				vec.push_back(matrix[i][endX]);
+		if (row<endX&&row<endY)
+		{
+			for (int i =endX-1; i >= row; --i)
+				vec.push_back(matrix[endY][i]);
+		}
+		if (row<endX&&row<endY-1)
+		{
+			for (int i = endY-1; i>row; --i)
+				vec.push_back(matrix[i][row]);
+		}	
+		row++;
+	}
+	return vec;
 }

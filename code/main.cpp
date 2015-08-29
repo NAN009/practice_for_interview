@@ -25,14 +25,15 @@ int main(void)
 	int a[] = {8,0,0,9,1,0,7,2,0};
 	char c[30] = "we are happy";
 	string str = "we are happy" ;
-	vector<int> vec = {1,2,3,4,4,4,5,5,6};
+	vector<int> vec1 = {1,2,3,4,4,4,5,5,6};
+	vector<vector<int>> vec2 = { { 1 }, { 2 }, { 3 }, { 4 }, {5} };
 	ListNode *head = new ListNode(6),*temp=head;
-	for (int i = 0; i < vec.size(); ++i)
+	for (int i = 0; i < vec1.size(); ++i)
 	{
-		temp->next = new struct ListNode(vec[i]);
+		temp->next = new struct ListNode(vec1[i]);
 		temp = temp->next;
 	}
-	int x = GetNumberOfK(vec,4);
+	vec1 = printMatrix(vec2);
 
 	system("pause");
 	return 0;
