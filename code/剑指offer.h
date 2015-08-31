@@ -956,3 +956,55 @@ vector<int> printMatrix(vector<vector<int> > matrix)
 	}
 	return vec;
 }
+//³óÊı
+bool isUglyNumber(int number)
+{
+	while (number % 2 == 0)
+		number /= 2;
+	while (number % 3 == 0)
+		number /= 3;
+	while (number % 5 == 0)
+		number /= 5;
+	return (number == 1) ? true : false;
+}
+int GetUglyNumber_Solution(int index)
+{
+	if (index <= 0)
+		return 0;
+	int count = 0, num = 0;
+	while (count<index)
+	{
+		++num;
+		int number = num;
+		while (number % 2 == 0)
+			number /= 2;
+		while (number % 3 == 0)
+			number /= 3;
+		while (number % 5 == 0)
+			number /= 5;
+		if (number == 1)
+			++count;
+	}
+	return num;
+
+}
+int UglyNumber(int index)
+{
+	int number = 2, n = 1, num;
+	if (index < 0) return -1;
+	else if (index == 1) return 1;
+	else
+	{
+		while (1)
+		{
+			num = number;
+			while (num % 2 == 0) num = num / 2;
+			while (num % 3 == 0) num = num / 3;
+			while (num % 5 == 0) num = num / 5;
+			if (num == 1) n++;
+			if (n == index) break;
+			else number++;
+		}
+		return number;
+	}
+}

@@ -33,7 +33,7 @@ int main(void)
 		temp->next = new struct ListNode(vec1[i]);
 		temp = temp->next;
 	}
-	vec1 = printMatrix(vec2);
+	cout<< UglyNumber(10);
 
 	system("pause");
 	return 0;
