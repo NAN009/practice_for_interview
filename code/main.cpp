@@ -33,7 +33,7 @@ int main(void)
 		temp->next = new struct ListNode(vec1[i]);
 		temp = temp->next;
 	}
-	cout<< UglyNumber(10);
+	cout<< GetUglyNumber_Solution1(5);
 
 	system("pause");
 	return 0;
