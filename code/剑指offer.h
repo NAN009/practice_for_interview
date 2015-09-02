@@ -1038,3 +1038,20 @@ int GetUglyNumber_Solution1(int index)
 	delete[] pUglyNumbers;
 	return ugly;
 }
+int FirstNotRepeatingChar(string str) 
+{
+	if (str.empty())
+		return 0;
+	const int tableSize = 256; 
+	unsigned int hashTable[tableSize];
+	for (unsigned int i = 0; i < tableSize; ++i)
+		hashTable[i] = 0;
+	for (int i = 0; i < str.size();++i)
+		hashTable[str[i]]++;
+	for (int i = 0; i < str.size();++i)
+	{
+		if (hashTable[str[i]] == 1)
+			return i;
+	}
+	return 0;
+}
