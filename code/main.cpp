@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <vector>
 #include <string.h>
+#include "huaweioj.h"
 //#include "5Chapter.h"
 //#include "6Chapter.h"
 //#include "7Chapter.h"
@@ -22,19 +23,27 @@ using namespace std;
 int main(void)
 {
 	char matrix[3][3] = { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' } };
-	int a[] = {8,0,0,9,1,0,7,2,0};
+	int a[] = { 8, 0, 0, 9, 1, 0, 7, 2, 0 };
 	char c[30] = "we are happy";
-	string str = "we are happy" ;
-	vector<int> vec1 = {1,2,3,4,4,4,5,5,6};
-	vector<vector<int>> vec2 = { { 1 }, { 2 }, { 3 }, { 4 }, {5} };
-	ListNode *head = new ListNode(6),*temp=head;
+	string str = "we are happy";
+	vector<int> vec1 = { 1, 2, 3, 4, 4, 4, 5, 5, 6 };
+	vector<vector<int>> vec2 = { { 1 }, { 2 }, { 3 }, { 4 }, { 5 } };
+	ListNode *head = new ListNode(6), *temp = head;
 	for (int i = 0; i < vec1.size(); ++i)
 	{
 		temp->next = new struct ListNode(vec1[i]);
 		temp = temp->next;
 	}
-	string str1 = "aabccdbd";
-	cout << FirstNotRepeatingChar(str1);
+	string str1;
+	char c1[100], c2[100],tempc1[100],tempc2[100];
+	cin >> c1>>c2;
+	strcpy(tempc1, c1);
+	Encrypt(c1, tempc1);
+	cout << tempc1 << " ";
+	strcpy(tempc2, c2);
+	unEncrypt(tempc2, c2);
+	cout << tempc2;
+	
 
 	system("pause");
 	return 0;
